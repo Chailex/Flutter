@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_appthirty/home_page.dart';
+import 'package:my_appthirty/pages/home_page.dart';
+import 'package:my_appthirty/pages/login_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,7 +8,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   final String name = "Chailex";
   final double number = 3.14;
   final bool isMale = true;
@@ -18,8 +19,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bringVeg(thaila: true);
     return MaterialApp(
-      home: HomePage(),
+      // home: HomePage(),
+      themeMode: ThemeMode.light,
+      theme:ThemeData(primaryColor: Colors.deepPurple),
+      darkTheme: ThemeData(
+        // brightness: Brightness.dark,
+        primarySwatch: Colors.green,
+      ),
+      initialRoute: "/home",
+      routes: {
+        "/":(context) => LoginPage(),
+        "/home": (context) => HomePage(),
+        "/login":(context) => LoginPage(),
+      },
+
     );
   }
+  bringVeg({required bool thaila, int rupees = 100}) {
+    //Take cycle
+  }
 }
+
+
