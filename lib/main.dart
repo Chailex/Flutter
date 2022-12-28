@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_appthirty/pages/home_page.dart';
 import 'package:my_appthirty/pages/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_appthirty/utils/routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
     bringVeg(thaila: true);
     return MaterialApp(
       // home: HomePage(),
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: ThemeData(
         primaryColor: Colors.deepPurple,
@@ -33,11 +35,11 @@ class MyApp extends StatelessWidget {
         // brightness: Brightness.dark,
         primarySwatch: Colors.green,
       ),
-      initialRoute: "/home",
+      initialRoute: "/",
       routes: {
         "/": (context) => LoginPage(),
-        "/home": (context) => HomePage(),
-        "/login": (context) => LoginPage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.loginRoute: (context) => LoginPage(),
       },
     );
   }
